@@ -1,0 +1,7 @@
+<h1> Add a drink to your Favorites!</h1>
+<form method = "POST">
+	{{ form.name.label}} {{form.name()}}
+	{{ form.submit() }}
+</form>
+
+<h3><a href = {{url_for('index')}}>Home </a> </h3>

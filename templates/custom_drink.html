@@ -1,0 +1,9 @@
+<form method = "POST">
+	{{ form.name.label }} {{form.name()}}
+	{{ form.ingredients.label}} {{form.ingredients()}}
+	{{ form.instructions.label}} {{form.instructions()}}
+	{{ form.submit() }}
+</form>
+<p> NOTE: please enter all ingredients seperated by a comma and a space. Ex ('Rum, Orange Juice')</p>
+
+<h3> <a href = "{{url_for('index')}}">Home </a> </h3>

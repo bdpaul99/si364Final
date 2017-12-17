@@ -1,0 +1,9 @@
+<h1> Here are all the drinks that you have saved:</h1>
+
+
+<ul>
+	{% for drink in drinks %}
+	<li>{{ drink[0]}} - Ingredients: {{ drink[1]}} - Instructions: {{drink[2]}}</li><br>
+	{% endfor %}
+</ul>
+<a href = "{{url_for('index')}}"> Home </a>

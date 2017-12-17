@@ -1,0 +1,14 @@
+
+<h1>Here are some drinks with those ingredients:</h1>
+<div>
+<p> Like one? <a href = "{{ url_for('add_drink') }}"> Add a drink to your favorites </a> </p>
+</div>
+<p> Don't See anything you like? Go back to your <a href = "{{ url_for('user_drinks') }}"> favorites </a></p>
+
+<ul>
+{% for drink in drinks %}
+<li>{{ drink[0] }} - Ingredients: {{drink[1]}}  Instructions: {{ drink[2] }}</li><br>
+{% endfor %}
+</ul>
+
+<a href= "{{url_for('index')}}">Go back to the homepage </a>

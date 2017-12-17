@@ -1,0 +1,13 @@
+<form method="POST">
+	{{ form.name.label}} {{ form.name()}}
+	{{ form.ingred1.label}} {{ form.ingred1()}}
+	{{ form.ingred2.label}} {{ form.ingred2()}}
+	{{ form.instructions.label }} {{ form.instructions()}}
+	{{ form.submit() }}
+</form>
+
+<div>
+{% for message in get_flashed_messages() %}
+{{ message }}
+{% endfor %}
+</div>

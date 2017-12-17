@@ -1,0 +1,39 @@
+{% if current_user.is_authenticated %}
+    <a href="{{ url_for('logout') }}">Sign Out {{current_user.username}}</a>
+    <h1>Welcome to Mixoligist, {{current_user.username}}</h1>
+    <div>
+	
+<form method = "POST">
+	{{ form.ingredients.label}} {{form.ingredients()}}
+	{{ form.submit() }}
+</form>
+<p> NOTE: please enter all ingredients seperated by a comma and a space. Ex ('Rum, Orange Juice')</p>
+
+</div>
+
+
+<div>
+	<a href = "{{ url_for('user_drinks') }}"> See your favorites</a>
+</div>
+<div>
+	<a href = "{{ url_for('add_drink') }}"> Add Drinks to your favorites </a>
+</div>
+<div> 
+	<a href = 'http://localhost:5000/all_drinks'> See the Drinks that other users have saved</a>
+</div>
+<div> 
+	<a href = 'http://localhost:5000/custom_drink'> Add your own creation to the database!</a>
+</div>
+
+
+
+{% else %}
+	 <h1>Welcome to Mixoligist,</h1>
+	 <h2> Register or Login to save recipes to your account </h2>
+    <div>
+    	<a href="{{ url_for('login') }}">Sign In</a>
+	</div>
+    <a href ="{{url_for('register')}}">Register</a>
+{% endif %}
+
+
