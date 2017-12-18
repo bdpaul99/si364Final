@@ -47,3 +47,6 @@ Enjoy the app!
 
 ****** ALL COCKTAIL DATA COLLECTED FROM http://www.thecocktaildb.com/api.php  ******
 
+
+To run the test methods, simply run the test.py file in an IDE or terminal with command python test.py
+

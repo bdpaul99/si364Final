@@ -47,25 +47,26 @@ login_manager.init_app(app)
 
 ### Helper Functions
 def get_drinks(ingredients):
-    base_url = 'http://www.thecocktaildb.com/api/json/v1/1/filter.php?i='
-    search_string = ingredients[0].replace(' ','_')
-    for i in ingredients[1:]:
-        search_string = search_string + '&' + i.replace(' ','_')
+    try:
+        base_url = 'http://www.thecocktaildb.com/api/json/v1/1/filter.php?i='
+        search_string = ingredients[0].replace(' ','_')
+        for i in ingredients[1:]:
+            search_string = search_string + '&' + i.replace(' ','_')
     
-    search_string = base_url + search_string
-    drinks_dict = requests.get(search_string).json()
+        search_string = base_url + search_string
+        drinks_dict = requests.get(search_string).json()
     
-    drink_objects = []
-    if len(drinks_dict['drinks']) > 0:
-        for d in drinks_dict['drinks']:
-            drink_obj = requests.get('http://www.thecocktaildb.com/api/json/v1/1/lookup.php?', params = {'i':d['idDrink']}).json()
-            drink_objects.append(drink_obj)
-
-    else:
+        drink_objects = []
+        if len(drinks_dict['drinks']) > 0:
+            for d in drinks_dict['drinks']:
+                drink_obj = requests.get('http://www.thecocktaildb.com/api/json/v1/1/lookup.php?', params = {'i':d['idDrink']}).json()
+                drink_objects.append(drink_obj)
+        return drink_objects
+    except:
         return "Sorry, there were no drinks found with those ingredients"
     
 
-    return drink_objects
+   
 
 def get_drink_by_name(name):
     base_url = 'http://www.thecocktaildb.com/api/json/v1/1/search.php?s=' + name.replace(' ','_')
