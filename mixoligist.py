@@ -46,7 +46,7 @@ login_manager.init_app(app)
 
 
 ### Helper Functions
-def get_five_drinks(ingredients):
+def get_drinks(ingredients):
     base_url = 'http://www.thecocktaildb.com/api/json/v1/1/filter.php?i='
     search_string = ingredients[0].replace(' ','_')
     for i in ingredients[1:]:
@@ -253,7 +253,7 @@ def index():
         
         ingredients = form.ingredients.data
         ingredients = ingredients.split(', ')
-        drinks = get_five_drinks(ingredients)
+        drinks = get_drinks(ingredients)
         
         drink_tuples = []
         for d in drinks:
